@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+#
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{AF3AC25A-CBDA-4F19-A66F-83D1808AA2A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runners", "Runners", "{63D35148-2F88-4C92-A907-AF69DF3E539A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soundr.PlayerApi", "Source\Runners\Soundr.PlayerApi\Soundr.PlayerApi.csproj", "{C025F00C-3635-4CB1-9963-D1FB64735C7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1BF4A525-B04D-49FF-BD2E-DAD21044DFAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soundr.Commons", "Source\Modules\Soundr.Commons\Soundr.Commons.csproj", "{0EC1F48F-D47A-47EB-A60C-55AF1FB76207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soundr.YouTube", "Source\Modules\Soundr.YouTube\Soundr.YouTube.csproj", "{45667A8E-A385-4A22-8D5F-CE0768364823}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C025F00C-3635-4CB1-9963-D1FB64735C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C025F00C-3635-4CB1-9963-D1FB64735C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C025F00C-3635-4CB1-9963-D1FB64735C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C025F00C-3635-4CB1-9963-D1FB64735C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC1F48F-D47A-47EB-A60C-55AF1FB76207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC1F48F-D47A-47EB-A60C-55AF1FB76207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC1F48F-D47A-47EB-A60C-55AF1FB76207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC1F48F-D47A-47EB-A60C-55AF1FB76207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45667A8E-A385-4A22-8D5F-CE0768364823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45667A8E-A385-4A22-8D5F-CE0768364823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45667A8E-A385-4A22-8D5F-CE0768364823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45667A8E-A385-4A22-8D5F-CE0768364823}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{63D35148-2F88-4C92-A907-AF69DF3E539A} = {AF3AC25A-CBDA-4F19-A66F-83D1808AA2A6}
+		{C025F00C-3635-4CB1-9963-D1FB64735C7C} = {63D35148-2F88-4C92-A907-AF69DF3E539A}
+		{1BF4A525-B04D-49FF-BD2E-DAD21044DFAD} = {AF3AC25A-CBDA-4F19-A66F-83D1808AA2A6}
+		{0EC1F48F-D47A-47EB-A60C-55AF1FB76207} = {1BF4A525-B04D-49FF-BD2E-DAD21044DFAD}
+		{45667A8E-A385-4A22-8D5F-CE0768364823} = {1BF4A525-B04D-49FF-BD2E-DAD21044DFAD}
+	EndGlobalSection
+EndGlobal
