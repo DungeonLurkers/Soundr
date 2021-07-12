@@ -1,0 +1,39 @@
+﻿@inherits LayoutComponentBase
+
+
+<Sidebar @ref="sidebar">
+    <SidebarContent>
+        <SidebarBrand>
+            <a href="">Soundr</a>
+        </SidebarBrand>
+        <SidebarNavigation>
+            <SidebarLabel>Main</SidebarLabel>
+            <SidebarItem>
+                <SidebarLink To="" Title="Home">
+                    <Icon Name="IconName.Home" Margin="Margin.Is3.FromRight" />Home
+                </SidebarLink>
+            </SidebarItem>
+            <SidebarItem>
+                <SidebarLink Toggled="(isOpen)=> appsSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                    <Icon Name="IconName.Smartphone" Margin="Margin.Is3.FromRight" />Apps
+                </SidebarLink>
+                <SidebarSubItem @ref="appsSidebarSubItems" IsShow="true">
+                    <SidebarItem>
+                        <SidebarLink To="musicplayer">Music player</SidebarLink>
+                    </SidebarItem>
+                </SidebarSubItem>
+            </SidebarItem>
+        </SidebarNavigation>
+    </SidebarContent>
+</Sidebar>
+
+@code{
+    Sidebar sidebar;
+    SidebarSubItem mailSidebarSubItems;
+    SidebarSubItem appsSidebarSubItems;
+
+    void ToggleSidebar()
+    {
+        sidebar.Toggle();
+    }
+}

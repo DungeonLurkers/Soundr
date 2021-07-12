@@ -1,0 +1,74 @@
+﻿@page "/"
+@inherits ReactiveComponentBase<MusicPlayerViewModel>
+
+<Container class="mainContent" Fluid="true">
+    <header>
+        <Addons>
+            <Addon AddonType="AddonType.Start">
+                <Button Color="Color.Secondary" Clicked="@(() => ViewModel.LoadData.Execute().Subscribe())"><Icon Name="IconName.Sync"/></Button>
+            </Addon>
+            <Addon AddonType="AddonType.Body">
+                <TextEdit @bind-Text="ViewModel.SongUri" Placeholder="Song URL"/>
+            </Addon>
+            <Addon AddonType="AddonType.End">
+                <Button Color="Color.Secondary" Clicked="@(() => ViewModel.Add.Execute().Subscribe())"><Icon Name="IconName.Add"/></Button>
+            </Addon>
+        </Addons>
+    </header>
+    <main align="center">
+        <Card>
+            <CardBody>
+                <CardTitle Size="5">@(ViewModel.Current?.Title ?? "[Empty]")</CardTitle>
+                <CardText>@(ViewModel.Current?.Duration ?? "0:00:00")</CardText>
+
+                <Div>
+                    <Row>
+                        <Column Display="Display.Flex">
+                            <Button Color="Color.Secondary" Size="Size.ExtraLarge" Clicked="@(() => ViewModel.JumpPrevious.Execute().Subscribe())"><Icon Name="IconName.Backward"/></Button>
+                        </Column>
+                        <Column Display="Display.Flex">
+                            <Button Color="Color.Secondary" Clicked="@Play" Size="Size.ExtraLarge">
+                            @if (ViewModel.PlayIconName is IconName.Sync)
+                            {
+                                <SpinKit Type="SpinKitType.Bounce" Color="#000000"/>
+                            }
+                            else
+                            {
+
+                                <Icon Name="@ViewModel.PlayIconName"/>
+                                
+                            }
+                            </Button>
+                        </Column>
+                        <Column Display="Display.Flex">
+                            <Button Color="Color.Secondary" Size="Size.ExtraLarge" Clicked="@(() => ViewModel.JumpNext.Execute().Subscribe())"><Icon Name="IconName.Forward"/></Button>
+                        </Column>
+                        <Column Display="Display.Flex">
+                            <Button Color="Color.Secondary" Size="Size.ExtraLarge" Clicked="@(() => ViewModel.Stop.Execute().Subscribe())"><Icon Name="IconName.Stop"/></Button>
+                        </Column>
+
+                    </Row>
+                </Div>
+                    @* <Slider Orientation="Vertical" TValue="float" Max="1f" Step="0.05f" @bind-Value="ViewModel.Volume"/> *@
+                    <Slider Orientation="Vertical" TValue="double" Max="@ViewModel.CurrentSongMs" Step="1.0d" @bind-Value="ViewModel.PositionInMs" @onclick="@(() => ViewModel.JumpTo.Execute().Subscribe())"/>
+            </CardBody>
+        </Card>
+        <Table Bordered="true">
+            <TableHeader>
+                <TableRowHeader>Thumbnail</TableRowHeader>
+                <TableRowHeader>Title</TableRowHeader>
+                <TableRowHeader>Duration</TableRowHeader>
+                <TableRowHeader>URL</TableRowHeader>
+            </TableHeader>
+            @foreach (var entry in ViewModel.Playlist)
+            {
+                <TableRow>
+                    <TableRowCell><Image Source="@entry.ThumbnailUri"/></TableRowCell>
+                    <TableRowCell TextAlignment="TextAlignment.Center">@entry.Title</TableRowCell>
+                    <TableRowCell TextAlignment="TextAlignment.Center">@entry.Duration</TableRowCell>
+                    <TableRowCell TextAlignment="TextAlignment.Center">@entry.Uri</TableRowCell>
+                </TableRow>
+            }
+        </Table>
+    </main>
+</Container>

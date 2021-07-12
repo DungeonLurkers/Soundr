@@ -4,6 +4,7 @@ using System.Reflection;
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using Soundr.Commons.Attributes;
+using Soundr.PlayerApi.Services;
 using Soundr.YouTube.Services;
 using Module = Autofac.Module;
 
@@ -15,6 +16,7 @@ namespace Soundr.PlayerApi
         {
 
             var serviceTypes = typeof(IYoutubePlayer).Assembly.GetTypes()
+                .Concat(typeof(IMusicPlayer).Assembly.GetTypes())
                 .Select(x => (attr: x.GetCustomAttribute<ServiceAttribute>(), type: x))
                 .Where(x => x.attr is not null)
                 .ToList();

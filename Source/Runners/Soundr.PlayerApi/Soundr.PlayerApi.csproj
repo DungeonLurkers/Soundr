@@ -2,17 +2,23 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="6.0.0" />
+        <PackageReference Include="Autofac" Version="6.2.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+        <PackageReference Include="LiteDB" Version="5.0.10" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.7" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\Modules\Soundr.Commons\Soundr.Commons.csproj" />
       <ProjectReference Include="..\..\Modules\Soundr.YouTube\Soundr.YouTube.csproj" />
+      <ProjectReference Include="..\PlayerWasm\PlayerWasm.csproj" />
     </ItemGroup>
 
 </Project>
