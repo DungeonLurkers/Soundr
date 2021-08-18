@@ -1,0 +1,35 @@
+﻿<reactiveUi:ReactiveWindow x:TypeArguments="viewModels:MainWindowViewModel"
+                           x:Class="Soundr.Manager.Views.MainWindow"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:local="clr-namespace:Soundr.Manager"
+                           xmlns:wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+                           xmlns:reactiveUi="http://reactiveui.net"
+                           xmlns:viewModels="clr-namespace:Soundr.Manager.ViewModels"
+                           mc:Ignorable="d"
+                           d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+                           Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- <wpf:WebView2 Source="{Binding SpotifySongId}"/> -->
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        
+        <TextBox x:Name="SongId"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="SongUri" IsReadOnly="True"/>
+        <Button Grid.Row="1" Grid.Column="0" x:Name="LoadButton">Load</Button>
+        <Button Grid.Row="1" Grid.Column="1" x:Name="PlayButton">Play</Button>
+        <wpf:WebView2 Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="WebView" />
+ 
+    </Grid>
+</reactiveUi:ReactiveWindow>

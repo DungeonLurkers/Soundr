@@ -4,7 +4,7 @@ using Soundr.Commons.Models;
 
 namespace Soundr.Commons.Clients
 {
-    public interface IPlayerApiClient
+    public interface IMusicPlayerApiClient
     {
         [Get("/player/playlist")]
         Task<PlaylistDto> GetPlaylist();

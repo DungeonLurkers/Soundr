@@ -1,6 +1,6 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run All" type="CompoundRunConfigurationType">
-    <toRun name="Soundr.Player" type="LaunchSettings" />
+    <toRun name="Soundr.Manager" type="DotNetProject" />
     <toRun name="Soundr.PlayerApi" type="LaunchSettings" />
     <method v="2" />
   </configuration>

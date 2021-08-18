@@ -23,7 +23,7 @@ namespace PlayerWasm.ViewModels
     {
         private readonly IMusicPlayerHubProxy _playerHub;
         private readonly ILogger<MusicPlayerViewModel> _logger;
-        private readonly IPlayerApiClient _apiClient;
+        private readonly IMusicPlayerApiClient _apiClient;
         private IObservable<long> _playerTimerObservable;
         private IDisposable? _timerDisposable;
         private ISubject<bool> _isTimerPaused;
@@ -48,7 +48,7 @@ namespace PlayerWasm.ViewModels
         public ReactiveCommand<Unit, Unit> JumpPrevious { get; }
         public ReactiveCommand<Unit, Unit> JumpTo { get; }
         
-        public MusicPlayerViewModel(IMusicPlayerHubProxy playerHub, ILogger<MusicPlayerViewModel> logger, IPlayerApiClient apiClient)
+        public MusicPlayerViewModel(IMusicPlayerHubProxy playerHub, ILogger<MusicPlayerViewModel> logger, IMusicPlayerApiClient apiClient)
         {
             _playerHub = playerHub;
             _logger = logger;

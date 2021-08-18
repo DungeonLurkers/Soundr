@@ -54,7 +54,7 @@ namespace PlayerWasm
             services.AddScoped(
                 sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
             
-            services.AddRestEaseClient<IPlayerApiClient>(builder.HostEnvironment.BaseAddress);
+            services.AddRestEaseClient<IMusicPlayerApiClient>(builder.HostEnvironment.BaseAddress);
 
             services.AddTransient<IHubConnectionBuilder, HubConnectionBuilder>();
 

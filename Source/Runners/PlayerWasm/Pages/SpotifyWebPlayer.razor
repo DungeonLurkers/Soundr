@@ -1,0 +1,20 @@
+﻿@page "/SpotifyWebPlayer/{trackId}"
+@using Microsoft.Extensions.Logging
+@inject IJSRuntime _jsRuntime
+@inject ILogger<SpotifyWebPlayer> _logger
+
+<iframe @ref=EmbedPlayer src="https://open.spotify.com/embed/track/@TrackId" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+@code {
+
+    [Parameter]
+    public string TrackId { get; set; } = "";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    public ElementReference EmbedPlayer { get; set; }
+
+}

@@ -1,37 +1,39 @@
 ﻿using System;
 using NAudio.Wave;
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace Soundr.YouTube.Extensions
 {
     public static class WaveStreamExtensions
     {
         // Set position of WaveStream to nearest block to supplied position
-        public static void SetPosition(this WaveStream strm, long position)
+        public static void SetPosition(this WaveStream stream, long position)
         {
             // distance from block boundary (may be 0)
-            long adj = position % strm.WaveFormat.BlockAlign;
+            var adj = position % stream.WaveFormat.BlockAlign;
             // adjust position to boundary and clamp to valid range
-            long newPos = Math.Max(0, Math.Min(strm.Length, position - adj));
+            var newPos = Math.Max(0, Math.Min(stream.Length, position - adj));
+            
             // set playback position
-            strm.Position = newPos;
+            stream.Position = newPos;
         }
 
         // Set playback position of WaveStream by seconds
-        public static void SetPosition(this WaveStream strm, double seconds)
+        public static void SetPosition(this WaveStream stream, double seconds)
         {
-            strm.SetPosition((long)(seconds * strm.WaveFormat.AverageBytesPerSecond));
+            stream.SetPosition((long)(seconds * stream.WaveFormat.AverageBytesPerSecond));
         }
 
         // Set playback position of WaveStream by time (as a TimeSpan)
-        public static void SetPosition(this WaveStream strm, TimeSpan time)
+        public static void SetPosition(this WaveStream stream, TimeSpan time)
         {
-            strm.SetPosition(time.TotalSeconds);
+            stream.SetPosition(time.TotalSeconds);
         }
 
         // Set playback position of WaveStream relative to current position
-        public static void Seek(this WaveStream strm, double offset)
+        public static void Seek(this WaveStream stream, double offset)
         {
-            strm.SetPosition(strm.Position + (long)(offset* strm.WaveFormat.AverageBytesPerSecond));
+            stream.SetPosition(stream.Position + (long)(offset* stream.WaveFormat.AverageBytesPerSecond));
         }
     }
 }
